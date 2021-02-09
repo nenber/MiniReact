@@ -15,6 +15,10 @@ export default class Component
      shouldUpdate(prevprops, nextprops){
         return JSON.stringify(prevprops) !== JSON.stringify(nextprops);
      }
+
+     display(props){
+      this.shouldUpdate()
+    }
 }
 
 

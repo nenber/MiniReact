@@ -1,3 +1,5 @@
+import util from "../util";
+
 export default MiniReact;
 
 const MiniReact = {
@@ -11,6 +13,7 @@ const MiniReact = {
       for (let attribute in props) {
         element.setAttribute(attribute, props[attribute]);
       }
+
       for (let subElement of children) {
         if (typeof subElement === "string")
           subElement = document.createTextNode(
@@ -26,6 +29,8 @@ const MiniReact = {
     return element;
         }
     }
+
+    
 
     
 }

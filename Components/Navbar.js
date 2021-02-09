@@ -1,3 +1,5 @@
+import MiniReact from "../MiniReact";
+
 class Navbar extends Component
 {
     propTypes = {
@@ -17,12 +19,14 @@ class Navbar extends Component
             {   title: this.props.title,
                 color: this.props.color
             },[
-                MiniReact.createElement("img", {onClick:()=>history.pushState({},"Home", "/"),
+                MiniReact.createElement("img", {onClick:()=>history.replaceState({},"Home"),
                 alt: "navbar logo",
                 src:"/logo.png"}),
-                MiniReact.createElement("button", onClick: () =>this.setState({color: "rouge"}), {title: "Rouge"}),
-                MiniReact.createElement("button", onClick: () =>this.setState({color: "vert"}), {title: "Vert"}),
-                MiniReact.createElement("button", onClick: () =>this.setState({color: "bleu"}),{title: "Bleu"})
+                MiniReact.createElement("button", onclick: () =>this.setState({color: "rouge"}), {title: "Rouge"}),
+                MiniReact.createElement("button", onclick: () =>this.setState({color: "vert"}), {title: "Vert"}),
+                MiniReact.createElement("button", onclick: () =>this.setState({color: "bleu"}),{title: "Bleu"}),
+                MiniReact.createElement("button", onclick="onNavItemClick('/Todolist')"),
+                MiniReact.createElement("button", onclick="onNavItemClick('/Giphy')")
             ]
         );
     }
