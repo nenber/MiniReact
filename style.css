@@ -10,6 +10,16 @@ body {
   color: white;
   min-height: 100vh;
 }
+.root{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav{
+  background:#ffffff;
+  height: 5rem;
+}
 
 header {
   font-size: 1.75rem;

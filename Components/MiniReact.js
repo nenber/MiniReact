@@ -2,15 +2,14 @@ export default MiniReact;
 
 const MiniReact = {
 
-    static createElement(elementName, props, children){
-        return 
-        {
-            let element;
-    if (elementName === "div") {
+  createElement: function (elementName, props, children) {
+    let element;
+    if (typeof (elementName) === "string") {
       element = document.createElement(elementName);
       for (let attribute in props) {
         element.setAttribute(attribute, props[attribute]);
       }
+
       for (let subElement of children) {
         if (typeof subElement === "string")
           subElement = document.createTextNode(
@@ -24,8 +23,6 @@ const MiniReact = {
     }
 
     return element;
-        }
-    }
 
-    
+  }
 }
