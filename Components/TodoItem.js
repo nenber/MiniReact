@@ -1,4 +1,4 @@
-import Component from "../Component";
+import { Component } from "../Component.js";
 
 export class TodoItem extends Component {
         render() {
@@ -13,4 +13,3 @@ export class TodoItem extends Component {
           );
         }
       }
-}

@@ -1,6 +1,6 @@
-class ReactDOM {
+export class ReactDOM {
 
-    render(element, container){
+   static render(element, container){
         container.appendChild(element);
     }
 }

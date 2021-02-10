@@ -1,6 +1,6 @@
 import MiniReact from "../MiniReact";
 
-class Navbar extends Component
+export class Navbar extends Component
 {
     propTypes = {
         name: { type: "string", enum: ["vert", "rouge", "bleu"] },

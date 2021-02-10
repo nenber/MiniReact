@@ -1,18 +1,18 @@
-let contentDiv = document.getElementById('content');
+let rootDiv = document.getElementById('root');
 
 routes = {
-    '/': Home,
+    '/Home': Home,
     '/Todolist': Todolist,
     '/giphy': giphy,
   };
 
   window.onpopstate = () => {
-    contentDiv.innerHTML = routes[window.location.pathname];
+    rootDiv.innerHTML = routes[window.location.pathname];
   }
   
   let onNavItemClick = (pathName) => {
-    window.history.pushState({}, pathName, window.location.origin + pathName);
-    contentDiv.innerHTML = routes[pathName];
+    window.history.replaceState({}, pathName, window.location.origin + pathName);
+    rootDiv.innerHTML = routes[pathName];
   }
 
-  contentDiv.innerHTML = routes[window.location.pathname];
+  rootDiv.innerHTML = routes[window.location.pathname];

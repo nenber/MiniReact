@@ -1,8 +1,10 @@
-import Component from "./Component";
-import MiniReact from "./MiniReact";
+import { Component } from "./Component.js";
+import { MiniReact } from "./MiniReact.js";
 
 export class Home extends Component{
     render(){
-        return MiniReact.createElement("img", src="./KMARK.jpeg")
+        return MiniReact.createElement("h1", null, ["KARL",
+        MiniReact.createElement("img", null,['src="/MARK.jpeg"'])
+        ]);
     }
 }

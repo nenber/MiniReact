@@ -1,6 +1,6 @@
-import MiniReact from "./MiniReact";
+import {MiniReact} from "./MiniReact.js";
 
-export default class Component 
+export class Component 
 {
     state = {};
     constructor(props) {

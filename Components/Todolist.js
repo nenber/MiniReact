@@ -1,8 +1,8 @@
-import Component from "../Component"
-import MiniReact from "../MiniReact";
-import { TodoItem } from "./TodoItem";
+import { Component } from "../Component.js";
+import { MiniReact } from "../MiniReact.js";
+import { TodoItem } from "./TodoItem.js";
 
-export class ToDoList extends Component{
+export class ToDolist extends Component{
 
     constructor(props){
         super()
