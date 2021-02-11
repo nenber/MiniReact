@@ -1,64 +1,27 @@
-import Component from "../Component"
-import MiniReact from "../MiniReact";
-import { TodoItem } from "./TodoItem";
+import { Component } from "../Component.js";
+import { MiniReact } from "../MiniReact.js";
+import { TodoItem } from "./TodoItem.js";
 
-export class ToDoList extends Component{
+export class Todolist extends Component{
 
     constructor(props){
-        super()
-        this.state = {
-            items: [],
-            text : ''
-        };
+      super(props)
+      this.state = {items: ["Oui","Bonjour","aaaa"], text : ''};  
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     render() {
-        return  MiniReact.createElement("div",null,
-                MiniReact.createElement("h3",null,
-                "Qui ose me déranger ?",
-                MiniReact.createElement(TodoItem, {items: this.state.items}),
-                MiniReact.createElement(
-                    "form",
-                    { onSubmit: this.handleSubmit },
-                    MiniReact.createElement(
-                      "label",
-                      { htmlFor: "titre" },
-                      "Qu'aller vous offrir pour calmer le dieu du Javascript?"
-                    ),
-                    MiniReact.createElement("input", {
-                      id: "titre",
-                      onChange: this.handleChange,
-                      value: this.state.text
-                    }),
-                    MiniReact.createElement(
-                      "button",
-                      null,
-                      "Offrande n°#",
-                      this.state.items.length + 1
-                    )
-                  )
-                )
-        );
-      }
-
-      handleChange(e) {
-        this.setState({ text: e.target.value });
-      }
-    
-      handleSubmit(e) {
-        e.preventDefault();
-        if (this.state.text.length === 0) {
-          return;
-        }
-        const offrande = {
-          text: this.state.text,
-          id: Date.now()
-        };
-        this.setState(state => ({
-          items: state.items.concat(offrande),
-          text: ''
-        }));
+      return MiniReact.createElement("div", null, [
+      MiniReact.createElement("h3", null, ["Qui ose me deranger?"]),
+        MiniReact.createElement("ul", {}, this.state.items.map((item,index) =>
+        MiniReact.createElement(TodoItem, {item: item}))),
+          MiniReact.createElement("label", {htmlFor: "titre"}, "Qu'allez vous offrir au dieu de javascript ?"),
+          MiniReact.createElement("input", {id: "titre", value: this.state.text}),
+          MiniReact.createElement("button",{},["Offrande n°#" + (this.state.items.length + 1)
+        ])
+        
+      
+    ])
       }
 }

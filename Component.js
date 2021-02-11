@@ -1,7 +1,8 @@
-import MiniReact from "./MiniReact";
+import {MiniReact} from "./MiniReact.js";
 
-export default class Component 
+export class Component 
 {
+  DOM = null;
     state = {};
     constructor(props) {
         this.props = props;
@@ -12,9 +13,29 @@ export default class Component
         
     }
 
-     shouldUpdate(prevprops, nextprops){
-        return JSON.stringify(prevprops) !== JSON.stringify(nextprops);
+     shouldUpdate(props){
+        return JSON.stringify(props) !== JSON.stringify(this.props) || props == null;
      }
+
+     display(newProps = null){
+      if (this.shouldUpdate(newProps)){
+
+        if(newProps != null){
+
+          this.props = newProps
+        }
+
+        this.DOM = this.render()
+      }
+      return this.DOM;
+    }
+    setState(newState){
+      this.state ={...this.state,...newState}
+      const newDOM = this.render()
+      const parentNode = this.DOM.parentNode
+      parentNode.replaceChild(newDOM,this.DOM)
+      this.DOM = newDOM
+    }
 }
 
 

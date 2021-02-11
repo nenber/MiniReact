@@ -1,16 +1,17 @@
-import Component from "../Component";
+import { Component } from "../Component.js";
+import { MiniReact } from "../MiniReact.js";
+
 
 export class TodoItem extends Component {
+  constructor(props){
+    super(props)
+  //  this.props = {items:{} }
+  }
         render() {
-          return MiniReact.createElement(
-            "ul",
-            null,
-            this.props.items.map(item => MiniReact.createElement(
-              "li",
-              { key: item.id },
-              item.text
-            ))
-          );
-        }
+          return MiniReact.createElement("li",
+            {},
+            [this.props.item]
+        );
       }
-}
+  }
+  
