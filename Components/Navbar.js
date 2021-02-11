@@ -1,4 +1,5 @@
-import MiniReact from "../MiniReact";
+import { Component } from "../Component.js";
+import {MiniReact} from "../MiniReact.js";
 
 export class Navbar extends Component
 {
@@ -7,26 +8,29 @@ export class Navbar extends Component
       };
 
     constructor(props){
-        super()
+        super(props)
+        this.setColor.bind(this)
         this.state = {
             color: this.props.color || "vert"
         }
+    }
+    setColor =(event) =>{
+        this.setState({color: event.target.getAttribute("color")})
+        console.log("setcolor")
     }
     
     render()
     {
         return MiniReact.createElement("nav",
-            {   title: this.props.title,
-                color: this.props.color
+            {   
+                style: "background-color:" + this.state.color
             },[
                 MiniReact.createElement("img", {onClick:()=>history.replaceState({},"Home"),
                 alt: "navbar logo",
                 src:"/logo.png"}),
-                MiniReact.createElement("button", onclick: () =>this.setState({color: "rouge"}), {title: "Rouge"}),
-                MiniReact.createElement("button", onclick: () =>this.setState({color: "vert"}), {title: "Vert"}),
-                MiniReact.createElement("button", onclick: () =>this.setState({color: "bleu"}),{title: "Bleu"}),
-                MiniReact.createElement("button", onclick="onNavItemClick('/Todolist')"),
-                MiniReact.createElement("button", onclick="onNavItemClick('/Giphy')")
+                MiniReact.createElement("button", {color: "red",click: this.setColor }, ["Rouge"]),
+                MiniReact.createElement("button", {color: "green",click: this.setColor }, ["Vert"]),
+                MiniReact.createElement("button", {color: "blue",click: this.setColor }, ["Bleu"])
             ]
         );
     }

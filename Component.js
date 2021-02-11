@@ -29,6 +29,13 @@ export class Component
       }
       return this.DOM;
     }
+    setState(newState){
+      this.state ={...this.state,...newState}
+      const newDOM = this.render()
+      const parentNode = this.DOM.parentNode
+      parentNode.replaceChild(newDOM,this.DOM)
+      this.DOM = newDOM
+    }
 }
 
 

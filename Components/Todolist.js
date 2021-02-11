@@ -16,12 +16,11 @@ export class Todolist extends Component{
       MiniReact.createElement("h3", null, ["Qui ose me deranger?"]),
         MiniReact.createElement("ul", {}, this.state.items.map((item,index) =>
         MiniReact.createElement(TodoItem, {item: item}))),
-        MiniReact.createElement("form", {onSubmit: this.handleSubmit}, [
           MiniReact.createElement("label", {htmlFor: "titre"}, "Qu'allez vous offrir au dieu de javascript ?"),
-          MiniReact.createElement("input", {id: "titre", onChange: this.handleChange, value: this.state.text}),
-          MiniReact.createElement("button",{click: },["Offrande n°#" + (this.state.items.length + 1)
+          MiniReact.createElement("input", {id: "titre", value: this.state.text}),
+          MiniReact.createElement("button",{},["Offrande n°#" + (this.state.items.length + 1)
         ])
-        ])
+        
       
     ])
       }
