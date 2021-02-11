@@ -2,11 +2,11 @@ import { Component } from "../Component.js";
 import { MiniReact } from "../MiniReact.js";
 import { TodoItem } from "./TodoItem.js";
 
-export class Todolist extends Component{
+export class Todolist extends Component {
 
-    constructor(props){
-      super(props)
-      this.state = {items: ["Oui","Bonjour","aaaa"], text : ''};  
+    constructor(props) {
+        super(props)
+        this.state = { items: ["Oui", "Bonjour", "aaaa"], text: '' };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
