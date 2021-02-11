@@ -2,6 +2,7 @@ import {MiniReact} from "./MiniReact.js";
 
 export class Component 
 {
+  DOM = null;
     state = {};
     constructor(props) {
         this.props = props;
@@ -12,12 +13,21 @@ export class Component
         
     }
 
-     shouldUpdate(prevprops, nextprops){
-        return JSON.stringify(prevprops) !== JSON.stringify(nextprops);
+     shouldUpdate(props){
+        return JSON.stringify(props) !== JSON.stringify(this.props) || props == null;
      }
 
-     display(props){
-      this.shouldUpdate()
+     display(newProps = null){
+      if (this.shouldUpdate(newProps)){
+
+        if(newProps != null){
+
+          this.props = newProps
+        }
+
+        this.DOM = this.render()
+      }
+      return this.DOM;
     }
 }
 

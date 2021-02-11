@@ -1,5 +1,4 @@
- export class util{
-      prop_access(object, path) {
+      export function prop_access(object, path) {
         if (typeof path != "string" || path === "") return object;
       
         if (typeof object != "object" || object == null) {
@@ -19,7 +18,7 @@
         return property;
       }
     
-        type_check_v1(val, type) {
+        function type_check_v1(val, type) {
         switch (typeof val) {
             case 'object':
                 if (Array.isArray(val)) return type === "array";
@@ -30,7 +29,7 @@
         }
     }
     
-      type_check_v2(val, config) {
+      function type_check_v2(val, config) {
         if (typeof(config) != "object" || config instanceof Array || config == null) {
             return false;
         }
@@ -58,10 +57,10 @@
         return true;
     }
     
-      type_check(arg, types) {
+      export function type_check(arg, types) {
         let isChecked = type_check_v2(arg, types);
-        // console.log({isChecked, types})
-        if(!types.properties) return isChecked;
+         console.log({isChecked, types, arg})
+        if(!types || !types.properties) return isChecked;
         for (const typeKey in types.properties) {
             isChecked = type_check(
                 type_check_v1(arg, 'object') ? arg[typeKey] : arg
@@ -71,6 +70,6 @@
         }
         return isChecked
     }
- }
+ 
  
  
