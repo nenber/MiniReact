@@ -6,10 +6,6 @@ export class Component {
     this.props = props;
   }
 
-  render() {
-
-  }
-
   shouldUpdate(prevprops, nextprops) {
     return JSON.stringify(prevprops) !== JSON.stringify(nextprops);
   }
