@@ -25,6 +25,8 @@ export class Gify extends Component {
             MiniReact.createElement("img", { style: "height:250px;width:250px;", id: "preview_gif5" }, []),
             MiniReact.createElement("img", { style: "height:250px;width:250px;", id: "preview_gif6" }, []),
             MiniReact.createElement("img", { style: "height:250px;width:250px;", id: "preview_gif7" }, []),
+            MiniReact.createElement("img", { style: "height:250px;width:250px;", id: "preview_gif8" }, []),
+
 
         ]);
     }
@@ -59,13 +61,14 @@ export class Gify extends Component {
 
                 // load the GIFs -- for our example we will load the first GIFs preview size (nanogif) and share size (tinygif)
 
-                document.getElementById("preview_gif").src = response_objects["results"][1]["media"][0]["nanogif"]["url"];
-                document.getElementById("preview_gif2").src = response_objects["results"][2]["media"][0]["nanogif"]["url"];
-                document.getElementById("preview_gif3").src = response_objects["results"][3]["media"][0]["nanogif"]["url"];
-                document.getElementById("preview_gif4").src = response_objects["results"][4]["media"][0]["nanogif"]["url"];
-                document.getElementById("preview_gif5").src = response_objects["results"][5]["media"][0]["nanogif"]["url"];
-                document.getElementById("preview_gif6").src = response_objects["results"][6]["media"][0]["nanogif"]["url"];
-                document.getElementById("preview_gif7").src = response_objects["results"][7]["media"][0]["nanogif"]["url"];
+                document.getElementById("preview_gif").src = response_objects["results"][0]["media"][0]["nanogif"]["url"];
+                document.getElementById("preview_gif2").src = response_objects["results"][1]["media"][0]["nanogif"]["url"];
+                document.getElementById("preview_gif3").src = response_objects["results"][2]["media"][0]["nanogif"]["url"];
+                document.getElementById("preview_gif4").src = response_objects["results"][3]["media"][0]["nanogif"]["url"];
+                document.getElementById("preview_gif5").src = response_objects["results"][4]["media"][0]["nanogif"]["url"];
+                document.getElementById("preview_gif6").src = response_objects["results"][5]["media"][0]["nanogif"]["url"];
+                document.getElementById("preview_gif7").src = response_objects["results"][6]["media"][0]["nanogif"]["url"];
+                document.getElementById("preview_gif8").src = response_objects["results"][7]["media"][0]["nanogif"]["url"];
 
 
                 // document.getElementById("share_gif").src = response_objects["results"][0]["media"][0]["tinygif"]["url"];
