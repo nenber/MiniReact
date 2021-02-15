@@ -19,7 +19,7 @@ export class ColorChange extends Component {
     }
 
     render() {
-        return MiniReact.createElement("nav",
+        return MiniReact.createElement("div",
             {
                 style: "background-color:" + this.state.color
             }, [
